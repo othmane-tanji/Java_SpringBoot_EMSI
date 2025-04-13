@@ -7,6 +7,11 @@
 </head>
 <body>
  <div class="p-3">
+     <form method="get" th:action="@{index}">
+         <label>Keyword :</label>
+         <input type="text" name="keyword" th:value="${keyword}">
+         <button type="submit" class="btn btn-info">Chercher</button>
+     </form>
     <table class="table">
         <thead>
           <tr>
@@ -18,13 +23,20 @@
               <td th:text="${p.id}"></td>
               <td th:text="${p.name}"></td>
               <td th:text="${p.price}"></td>
-              <td th:text="${p.quantitiy}"></td>
+              <td th:text="${p.quantity}"></td>
               <td>
                   <a onclick="return confirm('are you sure')" class="btn btn-danger" th:href="@{/delete(id=${p.id})}">Delete</a>
               </td>
           </tr>
         </tbody>
     </table>
+     <ul class="nav nav-pills">
+         <li th:each="page,status:${pages}">
+             <a th:href="@{/index(page=${status.index})}"
+                th:class="${currentPage==status.index?'btn btn-info':'btn btn-outline-info'}"
+                th:text="${status.index}"></a>
+         </li>
+     </ul>
  </div>
 </body>
 </html>

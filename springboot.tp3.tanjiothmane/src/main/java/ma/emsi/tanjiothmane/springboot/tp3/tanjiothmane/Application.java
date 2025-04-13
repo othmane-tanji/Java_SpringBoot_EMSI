@@ -17,10 +17,14 @@ public class Application {
 
 	CommandLineRunner commandLineRunner(ProductRepository productRepository){
 		return args -> {
-			Product product = Product.builder().name("Computer").price(5400).quantitiy(50).build();
+			Product product = Product.builder().name("Computer").price(5400).quantity(50).build();
 			productRepository.save(product);
-			productRepository.save(Product.builder().name("Printer").price(2400).quantitiy(10).build());
-			productRepository.save(Product.builder().name("Phone").price(3400).quantitiy(20).build());
+			productRepository.save(Product.builder().name("Printer").price(2400).quantity(10).build());
+			productRepository.save(Product.builder().name("Phone").price(3400).quantity(20).build());
+			productRepository.save(Product.builder().name("Printer").price(2400).quantity(10).build());
+			productRepository.save(Product.builder().name("Monitor").price(1400).quantity(50).build());
+			productRepository.save(Product.builder().name("Keyboard").price(400).quantity(50).build());
+			productRepository.save(Product.builder().name("Routers").price(900).quantity(6).build());
 			productRepository.findAll().forEach(p->{
 						System.out.println(p.toString());
 					}
