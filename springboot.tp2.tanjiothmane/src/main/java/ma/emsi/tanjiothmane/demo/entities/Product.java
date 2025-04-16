@@ -7,7 +7,7 @@ import jakarta.persistence.Id;
 import lombok.*;
 
 @Entity
-@Data @NoArgsConstructor @AllArgsConstructor
+@Data  @AllArgsConstructor
 
 public class Product {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,4 +20,31 @@ public class Product {
         this.price = price;
         this.quantity = quantity;
 }
+    public Product() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", quantity=" + quantity +
+                '}';
+    }
 }
